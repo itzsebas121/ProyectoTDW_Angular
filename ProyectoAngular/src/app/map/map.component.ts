@@ -18,7 +18,7 @@ export class MapComponent implements OnInit {
       zoom: 12, // Ajusta el zoom para mostrar toda la provincia
       accessToken: 'pk.eyJ1Ijoic2ViYXMxMjEiLCJhIjoiY20yOWNvNno3MDN2cTJ2cHl4OWk2d2l3aCJ9.zR3wF032kr8Fq9NvziGLEw'
     });
-
+    //Hola
     this.map.on('load', () => {
       // Usa las coordenadas GeoJSON del contorno de Tungurahua
       /* this.map.addSource('tungurahua-polygon', {
