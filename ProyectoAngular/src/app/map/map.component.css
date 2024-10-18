@@ -1,0 +1,21 @@
+.map-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    padding: 1em;
+}
+i{
+    margin-left: 10px;
+}
+a{
+    background-color: rgb(234, 231, 231);
+    padding: 10px 15px;
+    color: black;
+    border-radius: 20px;
+    display: inline-block;
+}
+a:hover{
+    background-color: rgb(146, 144, 144);
+    cursor: pointer;
+    transform: scale(1.05);
+}

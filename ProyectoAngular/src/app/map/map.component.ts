@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as mapboxgl from 'mapbox-gl';
-
+import { faCoffee } from '@fortawesome/free-solid-svg-icons';  
 @Component({
   selector: 'app-map',
   standalone: true,
@@ -24,12 +24,12 @@ export class MapComponent implements OnInit {
       /* this.map.addSource('tungurahua-polygon', {
         'type': 'geojson',
         'data': {
-          'type': 'Feature',
           'geometry': {
             'type': 'Polygon',
             'coordinates': [
               [
                 [-78.654, -1.265],
+            'type': 'Feature',
                 [-78.640, -1.260],
                 [-78.630, -1.250],
                 [-78.654, -1.265] 
@@ -64,5 +64,30 @@ export class MapComponent implements OnInit {
         }
       }); */
     });
+  }
+  latitude: number | undefined;
+  longitude: number | undefined;
+  getLocation(): void {
+    
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          this.latitude = position.coords.latitude;
+          this.longitude = position.coords.longitude;
+          console.log('Latitud:', this.latitude, 'Longitud:', this.longitude);
+        },
+        (error) => {
+          console.error('Error al obtener la ubicación:', error);
+        },
+        {
+          enableHighAccuracy: true, // Alta precisión si es posible
+          timeout: 5000, // Tiempo de espera antes de fallar
+          maximumAge: 0 // No usar ubicación en caché
+        }
+      );
+      alert(this.latitude+" Longitud"+ this.longitude);
+    } else {
+      alert('La Geolocalización no es soportada por este navegador.');
+    }
   }
 }

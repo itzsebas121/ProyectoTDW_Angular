@@ -1,1 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
+:root{
+    color-scheme: dark light;
+}
+*{
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+}
+button{
+    padding: 15px 30px;
+    border: none;
+    border-radius: 0.5em;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
