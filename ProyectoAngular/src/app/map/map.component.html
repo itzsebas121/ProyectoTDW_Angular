@@ -2,6 +2,8 @@
   <div class="buttons">
     <a class="btnUbicacion" (click)="getLocation()">Ubicacion Actual<i class="fa-solid fa-location-dot"></i></a>
   </div>
-
+  <select (change)="onParishSelect($event)">
+    <option *ngFor="let parish of parroquias" [value]="parish.properties.DPA_DESPAR">{{ parish.properties.DPA_DESPAR }}</option>
+  </select>  
   <div id="map" style="width: 50%; height: 500px"></div>
 </div>
