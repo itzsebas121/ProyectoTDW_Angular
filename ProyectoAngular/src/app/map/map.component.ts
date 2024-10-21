@@ -13,7 +13,7 @@ import { FeatureCollection } from 'geojson';  // Importar el tipo FeatureCollect
   styleUrls: ['./map.component.css']
 })
 export class MapComponent implements OnInit {
-  @Output() parroquiaSlected = new EventEmitter<any>();
+  @Output() parroquiaSelected = new EventEmitter<any>();
 
   //Esta funcion nos permite centar el mapa, los parametros que recibe  es la latidud, la longitus y el nivel de visualizacion 
   //en el que deseamos ver el mapa
@@ -110,7 +110,7 @@ export class MapComponent implements OnInit {
 
   onParishSelect(event: any): void {
     const selectedParishName = event.target.value;
-    this.parroquiaSlected.emit(event.target.value)
+    this.parroquiaSelected.emit(event.target.value)
     const selectedParish = this.parroquias.find(parroquia => parroquia.properties.DPA_DESPAR === selectedParishName);
 
     if (selectedParish) {

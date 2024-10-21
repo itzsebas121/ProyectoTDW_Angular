@@ -11,10 +11,10 @@ import { MapComponent } from './map/map.component';
 })
 export class AppComponent {
   title = 'Horarios Corte de Luz';
-  parroquiaSlected: any;
+  parroquiaSelected: any;
 
   handleLocation(location: any) {
-    this.parroquiaSlected = location;
+    this.parroquiaSelected = location;
     // Aquí puedes hacer más lógica, como enviar los datos a un servicio o mostrar más información
     console.log('Ubicación seleccionada:', location);
   }
