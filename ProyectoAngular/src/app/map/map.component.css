@@ -1,21 +1,28 @@
 .map-content {
-    display: flex;
-    flex-direction: column;
+    display: grid;
     gap: 2em;
     padding: 1em;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "ubicacion combobox" "map map";
 }
 i{
     margin-left: 10px;
 }
-a{
-    background-color: rgb(234, 231, 231);
-    padding: 10px 15px;
-    color: black;
-    border-radius: 20px;
-    display: inline-block;
+button{
+    font-size: 1em;
+    font-weight: 500;
+    text-align: center;
 }
-a:hover{
-    background-color: rgb(146, 144, 144);
-    cursor: pointer;
-    transform: scale(1.05);
+
+.buttons{
+    grid-area: ubicacion;
+}
+.cmb-parroquias{
+    grid-area: combobox;
+}
+.map{
+    grid-area: map;
+}
+.cmb-parroquias select{
+    background-color: #656565;
 }

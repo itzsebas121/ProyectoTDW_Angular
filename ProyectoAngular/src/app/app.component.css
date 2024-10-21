@@ -1,5 +1,31 @@
-.title {
+body{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "titulo titulo" "mapa contenido";
+    
+}
+.title{
+    background-color: #424242;
+    grid-area: titulo;
+    display: flex;
+    padding: 20px;
+    justify-content: center
+}
+.title h1{
     text-align: center;
-    font-size: 1.1em;
-    padding: 10px;
+    font-size: 2em;
+}
+
+.title button{
+    position: absolute;
+    right: 0;
+    margin-right: 10px;
+}
+
+
+.mapaItems{
+    grid-area: mapa;
+}
+.horariosCortes{
+    grid-area: contenido;
 }
