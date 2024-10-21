@@ -4,9 +4,9 @@
         <button class="btnLogIn">Iniciar Sesión</button>
     </div>
     <div class="mapaItems">
-        <app-map></app-map>
+        <app-map (locationSelected)="handleLocation($event)"></app-map>
     </div>
     <div class="horariosCortes">
-        <H1>Estos son los horarios</H1>
+        {{parroquiaSlected}}
     </div>
 </body>
