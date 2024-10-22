@@ -1,12 +1,43 @@
 <body>
-    <div class="title">
-        <h1>{{title}}</h1>
-        <button class="btnLogIn">Iniciar Sesión</button>
+  <div class="title">
+    <h1>{{ title }}</h1>
+    <button class="btnLogIn">Iniciar Sesión</button>
+  </div>
+  <div class="mapaItems">
+    <app-map (parroquiaSelected)="handleLocation($event)"></app-map>
+  </div>
+  <div class="horariosCortes">
+    @if(parroquiaSelected.length==0){
+    <h1>Seleccione una Zona para verificar el horario de corte de luz</h1>
+    }@else {
+    <button >Click</button>
+    <h1>Horario para {{ parroquiaSelected }}</h1>
+    <div class="tablaCortes">
+      <div class="alimentador">
+        @defer (on viewport) {
+        <h3>Alimentador: {{parroquia.alimentador}}</h3>
+        
+        <h3>Sectores</h3>
+        <ul>
+            @for (item of parroquia.sectores; track $index) {
+                <li>item[$index]</li>
+            }
+            <li>Hola</li>
+        </ul>
+        <h3>Horarios</h3>
+        <p>Lunes: 10h222</p>
+        <p>Martes: 10h222</p>
+        <p>Miercoles: 10h222</p>
+        <p>Jueves: 10h222</p>
+        <p>Viernes: 10h222</p>
+        }@placeholder {
+        <h1>Cargando primero</h1>
+        }@loading() {
+        <h2>Cargando</h2>
+        }
+      </div>
     </div>
-    <div class="mapaItems">
-        <app-map (parroquiaSelected)="handleLocation($event)"></app-map>
-    </div>
-    <div class="horariosCortes">
-        {{parroquiaSelected}}
-    </div>
+
+    }
+  </div>
 </body>

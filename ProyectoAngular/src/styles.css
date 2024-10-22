@@ -28,8 +28,9 @@ body {
 body {
     margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
+    overflow: hidden;
 }
-button:hover, select:hover{
+button:hover{
     background-color: #b0adadbb;
     cursor: pointer;
     transform: scale(1.05);
