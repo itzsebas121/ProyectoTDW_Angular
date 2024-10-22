@@ -2,20 +2,23 @@ import { Component, Input } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { MapComponent } from './map/map.component';
 import { Parroquias } from './Components/Parroquias.model';
+import { CommonModule } from '@angular/common'; // Asegúrate de importar CommonModule
+
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, MapComponent],
+  imports: [RouterOutlet, MapComponent, CommonModule], // Añadir CommonModule aquí
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
   title = 'Horarios Corte de Luz';
+
   @Input() parroquia: Parroquias = {
     name: "",
     alimentador: "",
     sectores: [],
-    hoarios: {
+    horarios: {
       lunes: "",
       martes: "",
       miercoles: "",
@@ -24,34 +27,24 @@ export class AppComponent {
       sabado: "",
       domingo: ""
     }
-  }
-  @Input() parroquiaSelected = "";
-  handleLocation(location: string) {
-    this.parroquiaSelected = location;
-    this.getDataParroquia()
-  }
-  getDataParroquia() {
-    fetch('assets/data/Parroquias.json')
-      .then(response => { return response.json() })
-      .then(
-        data => {
-          for (let i = 0; i < data.Ambato.length; i++) {
-            if (data.Ambato[i].parroquia == this.parroquiaSelected) {
-              this.parroquia.name = data.Ambato[i].parroquia;
-              this.parroquia.alimentador = data.Ambato[i].alimentador;
-              this.parroquia.sectores.push = data.Ambato[i].sectores;
-              this.parroquia.hoarios.lunes = data.Ambato[i].horarios.Lunes;
-              this.parroquia.hoarios.martes = data.Ambato[i].horarios.Martes;
-              this.parroquia.hoarios.miercoles = data.Ambato[i].horarios.Miercoles;
-              this.parroquia.hoarios.jueves = data.Ambato[i].horarios.Jueves;
-              this.parroquia.hoarios.viernes = data.Ambato[i].horarios.Viernes;
-              this.parroquia.hoarios.sabado = data.Ambato[i].horarios.Sabado;
-              this.parroquia.hoarios.domingo = data.Ambato[i].horarios.Domingo;
-            }
-          }
-        }
-      );
-  }
-  
+  };
 
+  parroquiaSelected: any = null;
+
+  handleLocation(location: string) {
+    this.parroquiaSelected = null;
+    this.getDataParroquia(location);
+  }
+
+  getDataParroquia(parroquiaName: string) {
+    fetch('assets/data/Parroquias.json')
+      .then(response => response.json())
+      .then(data => {
+        const selectedParroquia = data.Ambato.find((parroquia: any) => parroquia.parroquia === parroquiaName);
+        if (selectedParroquia) {
+          this.parroquiaSelected = selectedParroquia;
+        }
+      })
+      .catch(error => console.error('Error al cargar el archivo JSON:', error));
+  }
 }

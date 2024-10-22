@@ -2,7 +2,7 @@ export interface Parroquias {
     name: string;
     alimentador: string;
     sectores: [];
-    hoarios: {
+    horarios: {
         lunes: string;
         martes: string;
         miercoles: string;
