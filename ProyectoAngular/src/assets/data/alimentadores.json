@@ -1,0 +1,471 @@
+{
+  "parroquias": [
+    {
+      "nombre": "AMBATILLO",
+      "alimentadores": [
+        {
+          "nombre": "QUISAPINCHA",
+          "sectores": [
+            "CENTRO PARROQUIAL QUISAPINCHA",
+            "EL GALPÓN",
+            "TONDOLIQUE",
+            "ILLAHUA CHICO",
+            "ILLAHUA GRANDE",
+            "CHAUPILOMA",
+            "PUCARÁ",
+            "AMBAYATA",
+            "SAN PEDRO",
+            "BARRIO PALAMA"
+          ],
+          "horarios": {
+            "Lunes": [
+              "16:00 - 17:00",
+              "21:00 - 23:59"
+            ],
+            "Martes": "00:00 - 00:00",
+            "Miércoles": [
+              "10:00 - 16:00"
+            ],
+            "Jueves": "00:00 - 00:00",
+            "Viernes": "00:00 - 00:00",
+            "Sábado": "00:00 - 00:00",
+            "Domingo": "00:00 - 00:00"
+          }
+        },
+        {
+          "nombre": "PINLLO",
+          "sectores": [
+            "CENTRO PARROQUIAL"
+          ],
+          "horarios": {
+            "Lunes": "00:00 - 00:00",
+            "Martes": "00:00 - 00:00",
+            "Miércoles": "00:00 - 00:00",
+            "Jueves": "00:00 - 00:00",
+            "Viernes": "00:00 - 00:00",
+            "Sábado": "00:00 - 00:00",
+            "Domingo": "00:00 - 00:00"
+          }
+        }
+      ]
+    },
+    {
+      "nombre": "ATAHUALPA (CHISALATA)",
+      "alimentadores": [
+        {
+          "nombre": "LA VICTORIA",
+          "sectores": [
+            "LA VICTORIA",
+            "URBANIZACIÓN LA SUIZA",
+            "SAN VICENTE"
+          ],
+          "horarios": {
+            "Lunes": [
+              "21:00 - 22:00"
+            ],
+            "Martes": [
+              "23:00 - 23:59"
+            ],
+            "Miércoles": "00:00 - 00:00",
+            "Jueves": "00:00 - 00:00",
+            "Viernes": "00:00 - 00:00",
+            "Sábado": "00:00 - 00:00",
+            "Domingo": "00:00 - 00:00"
+          }
+        }
+      ]
+    },
+    {
+      "nombre": "CONSTANTINO FERNANDEZ",
+      "alimentadores": [
+        {
+          "nombre": "FERNANDEZ",
+          "sectores": [
+            "SECTOR 1",
+            "SECTOR 2"
+          ],
+          "horarios": {
+            "Lunes": "00:00 - 00:00",
+            "Martes": "00:00 - 00:00",
+            "Miércoles": "00:00 - 00:00",
+            "Jueves": "00:00 - 00:00",
+            "Viernes": "00:00 - 00:00",
+            "Sábado": "00:00 - 00:00",
+            "Domingo": "00:00 - 00:00"
+          }
+        }
+      ]
+    },
+    {
+      "nombre": "HUACHI GRANDE",
+      "alimentadores": [
+        {
+          "nombre": "MANZANA DE ORO",
+          "sectores": [
+            "COLINAS DEL SUR",
+            "EL FRUTILLAL",
+            "LUZ DE AMERICA"
+          ],
+          "horarios": {
+            "Lunes": "00:00 - 00:00",
+            "Martes": "00:00 - 00:00",
+            "Miércoles": "00:00 - 00:00",
+            "Jueves": "00:00 - 00:00",
+            "Viernes": "00:00 - 00:00",
+            "Sábado": "00:00 - 00:00",
+            "Domingo": "00:00 - 00:00"
+          }
+        }
+      ]
+    },
+    {
+      "nombre": "IZAMBA",
+      "alimentadores": [
+        {
+          "nombre": "PASO LATERAL",
+          "sectores": [
+            "YACUPAMBA",
+            "PASO LATERAL (ENTRE AV. INDOAMÉRICA Y EL PUENTE)",
+            "AV. PEDRO VASCONEZ"
+          ],
+          "horarios": {
+            "Lunes": "00:00 - 00:00",
+            "Martes": "00:00 - 00:00",
+            "Miércoles": "00:00 - 00:00",
+            "Jueves": "00:00 - 00:00",
+            "Viernes": "00:00 - 00:00",
+            "Sábado": "00:00 - 00:00",
+            "Domingo": "00:00 - 00:00"
+          }
+        }
+      ]
+    },
+    {
+      "nombre": "JUAN BENIGNO VELA",
+      "alimentadores": [
+        {
+          "nombre": "VELA",
+          "sectores": [
+            "SECTOR VELA 1",
+            "SECTOR VELA 2"
+          ],
+          "horarios": {
+            "Lunes": "00:00 - 00:00",
+            "Martes": "00:00 - 00:00",
+            "Miércoles": "00:00 - 00:00",
+            "Jueves": "00:00 - 00:00",
+            "Viernes": "00:00 - 00:00",
+            "Sábado": "00:00 - 00:00",
+            "Domingo": "00:00 - 00:00"
+          }
+        }
+      ]
+    },
+    {
+      "nombre": "MONTALVO",
+      "alimentadores": [
+        {
+          "nombre": "MONTALVO ALIMENTADOR",
+          "sectores": [
+            "SECTOR A",
+            "SECTOR B"
+          ],
+          "horarios": {
+            "Lunes": "00:00 - 00:00",
+            "Martes": "00:00 - 00:00",
+            "Miércoles": "00:00 - 00:00",
+            "Jueves": "00:00 - 00:00",
+            "Viernes": "00:00 - 00:00",
+            "Sábado": "00:00 - 00:00",
+            "Domingo": "00:00 - 00:00"
+          }
+        }
+      ]
+    },
+    {
+      "nombre": "PASA",
+      "alimentadores": [
+        {
+          "nombre": "PASA ALIMENTADOR",
+          "sectores": [
+            "SECTOR C",
+            "SECTOR D"
+          ],
+          "horarios": {
+            "Lunes": "00:00 - 00:00",
+            "Martes": "00:00 - 00:00",
+            "Miércoles": "00:00 - 00:00",
+            "Jueves": "00:00 - 00:00",
+            "Viernes": "00:00 - 00:00",
+            "Sábado": "00:00 - 00:00",
+            "Domingo": "00:00 - 00:00"
+          }
+        }
+      ]
+    },
+    {
+      "nombre": "PILAGUIN",
+      "alimentadores": [
+        {
+          "nombre": "PILAHUÍN ALIMENTADOR",
+          "sectores": [
+            "SECTOR E",
+            "SECTOR F"
+          ],
+          "horarios": {
+            "Lunes": "00:00 - 00:00",
+            "Martes": "00:00 - 00:00",
+            "Miércoles": "00:00 - 00:00",
+            "Jueves": "00:00 - 00:00",
+            "Viernes": "00:00 - 00:00",
+            "Sábado": "00:00 - 00:00",
+            "Domingo": "00:00 - 00:00"
+          }
+        }
+      ]
+    },
+    {
+      "nombre": "QUISAPINCHA",
+      "alimentadores": [
+        {
+          "nombre": "QUISAPINCHA",
+          "sectores": [
+            "CENTRO PARROQUIAL QUISAPINCHA",
+            "EL GALPÓN",
+            "TONDOLIQUE",
+            "ILLAHUA CHICO",
+            "ILLAHUA GRANDE",
+            "CHAUPILOMA",
+            "PUCARÁ",
+            "AMBAYATA",
+            "SAN PEDRO",
+            "BARRIO PALAMA"
+          ],
+          "horarios": {
+            "Lunes": "00:00 - 00:00",
+            "Martes": "00:00 - 00:00",
+            "Miércoles": "00:00 - 00:00",
+            "Jueves": "00:00 - 00:00",
+            "Viernes": "00:00 - 00:00",
+            "Sábado": "00:00 - 00:00",
+            "Domingo": "00:00 - 00:00"
+          }
+        }
+      ]
+    },
+    {
+      "nombre": "PINLLO",
+      "alimentadores": [
+        {
+          "nombre": "PINLLO",
+          "sectores": [
+            "YURAGASHPA",
+            "LACÓN"
+          ],
+          "horarios": {
+            "Lunes": "00:00 - 00:00",
+            "Martes": "00:00 - 00:00",
+            "Miércoles": "00:00 - 00:00",
+            "Jueves": "00:00 - 00:00",
+            "Viernes": "00:00 - 00:00",
+            "Sábado": "00:00 - 00:00",
+            "Domingo": "00:00 - 00:00"
+          }
+        }
+      ]
+    },
+    {
+      "nombre": "SAN FERNANDO (PASA SAN FERNANDO)",
+      "alimentadores": [
+        {
+          "nombre": "SAN FERNANDO",
+          "sectores": [
+            "SECTOR G",
+            "SECTOR H"
+          ],
+          "horarios": {
+            "Lunes": "00:00 - 00:00",
+            "Martes": "00:00 - 00:00",
+            "Miércoles": "00:00 - 00:00",
+            "Jueves": "00:00 - 00:00",
+            "Viernes": "00:00 - 00:00",
+            "Sábado": "00:00 - 00:00",
+            "Domingo": "00:00 - 00:00"
+          }
+        }
+      ]
+    },
+    {
+      "nombre": "SANTA ROSA",
+      "alimentadores": [
+        {
+          "nombre": "CHIBULEO",
+          "sectores": [
+            "ANGAHUANA",
+            "MISQUILLI",
+            "CUATRO ESQUINAS"
+          ],
+          "horarios": {
+            "Lunes": "00:00 - 00:00",
+            "Martes": "00:00 - 00:00",
+            "Miércoles": "00:00 - 00:00",
+            "Jueves": "00:00 - 00:00",
+            "Viernes": "00:00 - 00:00",
+            "Sábado": "00:00 - 00:00",
+            "Domingo": "00:00 - 00:00"
+          }
+        },
+        {
+          "nombre": "SANTA ROSA",
+          "sectores": [
+            "CENTRO PARROQUIAL SANTA ROSA",
+            "VENEZUELA",
+            "CARMELITAS"
+          ],
+          "horarios": {
+            "Lunes": "00:00 - 00:00",
+            "Martes": "00:00 - 00:00",
+            "Miércoles": "00:00 - 00:00",
+            "Jueves": "00:00 - 00:00",
+            "Viernes": "00:00 - 00:00",
+            "Sábado": "00:00 - 00:00",
+            "Domingo": "00:00 - 00:00"
+          }
+        }
+      ]
+    },
+    {
+      "nombre": "TOTORAS",
+      "alimentadores": [
+        {
+          "nombre": "TOTORAS ALIMENTADOR",
+          "sectores": [
+            "SECTOR I",
+            "SECTOR J"
+          ],
+          "horarios": {
+            "Lunes": "00:00 - 00:00",
+            "Martes": "00:00 - 00:00",
+            "Miércoles": "00:00 - 00:00",
+            "Jueves": "00:00 - 00:00",
+            "Viernes": "00:00 - 00:00",
+            "Sábado": "00:00 - 00:00",
+            "Domingo": "00:00 - 00:00"
+          }
+        }
+      ]
+    },
+    {
+      "nombre": "CUNCHIBAMBA",
+      "alimentadores": [
+        {
+          "nombre": "CUNCHIBAMBA",
+          "sectores": [
+            "PARROQUIA CUNCHIBAMBA"
+          ],
+          "horarios": {
+            "Lunes": "00:00 - 00:00",
+            "Martes": "00:00 - 00:00",
+            "Miércoles": "00:00 - 00:00",
+            "Jueves": "00:00 - 00:00",
+            "Viernes": "00:00 - 00:00",
+            "Sábado": "00:00 - 00:00",
+            "Domingo": "00:00 - 00:00"
+          }
+        }
+      ]
+    },
+    {
+      "nombre": "UNAMUNCHO",
+      "alimentadores": [
+        {
+          "nombre": "PUERTO ARTURO",
+          "sectores": [
+            "CARMELITAS",
+            "LA MERCED",
+            "SAN FRANCISCO",
+            "PUERTO ARTURO"
+          ],
+          "horarios": {
+            "Lunes": "00:00 - 00:00",
+            "Martes": "00:00 - 00:00",
+            "Miércoles": "00:00 - 00:00",
+            "Jueves": "00:00 - 00:00",
+            "Viernes": "00:00 - 00:00",
+            "Sábado": "00:00 - 00:00",
+            "Domingo": "00:00 - 00:00"
+          }
+        }
+      ]
+    },
+    {
+      "nombre": "AMBATO",
+      "alimentadores": [
+        {
+          "nombre": "CENTRO AMBATO",
+          "sectores": [
+            "PARQUE CENTRAL",
+            "MERCADO CENTRAL"
+          ],
+          "horarios": {
+            "Lunes": "00:00 - 00:00",
+            "Martes": "00:00 - 00:00",
+            "Miércoles": "00:00 - 00:00",
+            "Jueves": "00:00 - 00:00",
+            "Viernes": "00:00 - 00:00",
+            "Sábado": "00:00 - 00:00",
+            "Domingo": "00:00 - 00:00"
+          }
+        }
+      ]
+    },
+    {
+      "nombre": "AUGUSTO N. MARTÍNEZ (MUNDUGLEO)",
+      "alimentadores": [
+        {
+          "nombre": "MARTINEZ",
+          "sectores": [
+            "CENTRO PARROQUIAL",
+            "PONDOA",
+            "MORASPAMBA",
+            "SAN LORENZO",
+            "SAN GREGORIO",
+            "VICENTINO",
+            "SAN JOSÉ"
+          ],
+          "horarios": {
+            "Lunes": "00:00 - 00:00",
+            "Martes": "00:00 - 00:00",
+            "Miércoles": "00:00 - 00:00",
+            "Jueves": "00:00 - 00:00",
+            "Viernes": "00:00 - 00:00",
+            "Sábado": "00:00 - 00:00",
+            "Domingo": "00:00 - 00:00"
+          }
+        }
+      ]
+    },
+    {
+      "nombre": "PICAIHUA",
+      "alimentadores": [
+        {
+          "nombre": "PICAIHUA ALIMENTADOR",
+          "sectores": [
+            "REAL AUDIENCIA",
+            "MURIALDO",
+            "EL CALVARIO"
+          ],
+          "horarios": {
+            "Lunes": "00:00 - 00:00",
+            "Martes": "00:00 - 00:00",
+            "Miércoles": "00:00 - 00:00",
+            "Jueves": "00:00 - 00:00",
+            "Viernes": "00:00 - 00:00",
+            "Sábado": "00:00 - 00:00",
+            "Domingo": "00:00 - 00:00"
+          }
+        }
+      ]
+    }
+  ]
+}

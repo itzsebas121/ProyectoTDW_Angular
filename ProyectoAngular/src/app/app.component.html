@@ -1,7 +1,12 @@
 <body>
   <div class="title">
     <h1>{{ title }}</h1>
-    <button class="btnLogIn">Iniciar Sesión</button>
+    <button class="btnLogOut" *ngIf="isLoggedIn" (click)="mostrarOverlayHorarios()">
+      Insertar Horarios
+    </button>
+    <button class="btnLogOut" *ngIf="!isLoggedIn" (click)="toggleLogin()" id="authButton">
+      Iniciar Sesión
+    </button>
   </div>
 
   <div class="mapaItems">
@@ -14,23 +19,151 @@
     </ng-container>
 
     <ng-container *ngIf="parroquiaSelected">
-      <h1>Horario para {{ parroquiaSelected.parroquia }}</h1>
-
-      <div class="tablaCortes">
-        <div class="alimentador">
-          <h3>Alimentador: {{ parroquiaSelected.alimentador }}</h3>
-          <h3>Sectores</h3>
-          <ul>
-            <li *ngFor="let sector of parroquiaSelected.sectores">{{ sector }}</li>
-          </ul>
-          <h3>Horarios</h3>
-          <ul>
-            <li *ngFor="let diaHorario of parroquiaSelected.horarios | keyvalue">
-              {{ diaHorario.key }}: {{ diaHorario.value }}
-            </li>
-          </ul>
+      <div class="parroquia-container">
+        <h1>Horario para {{ parroquiaSelected.nombre }}</h1>
+    
+        <!-- Contenedor principal con scroll -->
+        <div class="alimentadores-scroll">
+          <!-- Itera sobre los alimentadores y los muestra como tarjetas -->
+          <div class="alimentador-card" *ngFor="let alimentador of parroquiaSelected.alimentadores">
+            <div class="card-header">
+              <h2>Alimentador: {{ alimentador.nombre }}</h2>
+            </div>
+            <div class="card-body">
+              <div class="sectores-container">
+                <h3>Sectores</h3>
+                <ul>
+                  <li *ngFor="let sector of alimentador.sectores">
+                    {{ sector }}
+                  </li>
+                </ul>
+              </div>
+              <div class="horarios-container">
+                <h3>Horarios</h3>
+                <ul>
+                  <!-- Utiliza obtenerHorariosOrdenados para garantizar el orden de los días -->
+                  <li *ngFor="let diaHorario of obtenerHorariosOrdenados(alimentador.horarios)">
+                    <strong>{{ diaHorario.dia }}:</strong> {{ diaHorario.rango.join(', ') }}
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </ng-container>
+    
   </div>
+  <div class="login-overlay" *ngIf="showLoginOverlay">
+    <div class="login-box">
+      <h1>Iniciar Sesión</h1>
+      <form (submit)="login($event)">
+        <label for="username">Usuario</label>
+        <input
+          type="text"
+          id="username"
+          placeholder="Ingrese su usuario"
+          required
+        />
+
+        <label for="password">Contraseña</label>
+        <input
+          type="password"
+          id="password"
+          placeholder="Ingrese su contraseña"
+          required
+        />
+
+        <div class="buttons">
+          <button type="submit" class="btn-enter">Ingresar</button>
+          <button type="button" class="btn-cancel" (click)="cancelLogin()">
+            Cancelar
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+  <div class="overlay-horarios" *ngIf="showOverlayHorarios">
+    <div class="formulario-horarios">
+        <h2>Formulario de Inserción de Horarios</h2>
+        <div class="formulario-contenido">
+            <div class="form-group">
+                <label for="parroquia">Parroquia</label>
+                <select id="parroquia" [(ngModel)]="selectedParroquia" (change)="onParroquiaChange()">
+                    <option value="">Seleccione una parroquia</option>
+                    <option *ngFor="let parroquia of parroquias" [value]="parroquia.nombre">{{ parroquia.nombre }}</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="alimentador">Alimentador</label>
+                <select id="alimentador" [(ngModel)]="selectedAlimentador">
+                    <option value="">Seleccione un alimentador</option>
+                    <option *ngFor="let alimentador of alimentadores" [value]="alimentador.nombre">{{ alimentador.nombre }}</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="dia">Día</label>
+                <select id="dia" [(ngModel)]="selectedDia">
+                    <option value="">Seleccione un día</option>
+                    <option>Lunes</option>
+                    <option>Martes</option>
+                    <option>Miércoles</option>
+                    <option>Jueves</option>
+                    <option>Viernes</option>
+                    <option>Sábado</option>
+                    <option>Domingo</option>
+                </select>
+            </div>
+
+            <div class="horario-fila">
+                <div class="form-group">
+                    <label for="horaInicio">Hora de inicio</label>
+                    <input type="time" id="horaInicio" [(ngModel)]="horaInicio" />
+                </div>
+
+                <div class="form-group">
+                    <label for="horaFin">Hora de fin</label>
+                    <input type="time" id="horaFin" [(ngModel)]="horaFin" />
+                </div>
+            </div>
+
+            <div class="btn-container">
+                <button class="btn-add" (click)="agregarHorario()">+ Agregar Horario</button>
+            </div>
+        </div>
+
+        <table class="tabla-horarios">
+            <thead>
+                <tr>
+                    <th>Día</th>
+                    <th>Hora de inicio</th>
+                    <th>Hora de fin</th>
+                    <th>Alimentador</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let horario of horarios">
+                    <td>{{ horario.dia }}</td>
+                    <td>{{ horario.inicio }}</td>
+                    <td>{{ horario.fin }}</td>
+                    <td>{{ horario.alimentador }}</td>
+                    <td><button (click)="eliminarHorario(horario)">Eliminar</button></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="button-group">
+            <button (click)="guardarHorarios()" class="btn-save">Guardar</button>
+            <button (click)="cerrarOverlayHorarios()" class="btn-close">Cerrar</button>
+        </div>
+    </div>
+</div>
+
+  
+  
 </body>

@@ -2,25 +2,20 @@
 <div class="map-content">
   <div class="buttons">
     <button class="btnUbicacion" (click)="getLocation()">
-      Ubicacion Actual <i class="fa-solid fa-location-dot"></i>
+      Ubicación Actual <i class="fa-solid fa-location-dot"></i>
     </button>
   </div>
   <div class="cmb-parroquias">
-    @defer{
-
-    <select (change)="onParishSelect($event)">
+    <!-- Selector de parroquias con [(ngModel)] -->
+    <select [(ngModel)]="selectedParishName" (change)="onParishSelect($event)">
       <option value="" hidden>Selecciona una Parroquia...</option>
       <option
         *ngFor="let parish of parroquias"
-        [value]="parish.properties.DPA_DESPAR"
+        [value]="parish.properties['DPA_DESPAR']"
       >
-        {{ parish.properties.DPA_DESPAR }}
+        {{ parish.properties['DPA_DESPAR'] }}
       </option>
     </select>
-    }@loading (minimum 1s){
-       <select width="100%">
-      <option value="">Cargando Parroquias</option>
-    </select>}
   </div>
   <div id="map" class="map" style="width: 100%; height: 500px"></div>
 </div>

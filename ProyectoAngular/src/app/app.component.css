@@ -1,42 +1,380 @@
-body{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas: "titulo titulo" "mapa contenido";
-    
-}
-.title{
-    background-color: #424242;
-    grid-area: titulo;
-    display: flex;
-    padding: 20px;
-    justify-content: center
-}
-.title h1{
-    text-align: center;
-    font-size: 2em;
+/* General */
+body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: 
+    "titulo titulo" 
+    "mapa contenido";
+  background-color: #1a1a1a; /* Fondo oscuro */
+  color: #f0f0f0; /* Texto claro */
+  margin: 0;
+  font-family: Arial, sans-serif;
 }
 
-.title button{
-    position: absolute;
-    right: 0;
-    margin-right: 10px;
+/* Título */
+.title {
+  background-color: #333333;
+  grid-area: titulo;
+  display: flex;
+  padding: 20px;
+  justify-content: center;
+  position: relative;
 }
 
+.title h1 {
+  text-align: center;
+  font-size: 2em;
+  color: #ffffff;
+}
 
-.mapaItems{
-    grid-area: mapa;
+.title button {
+  position: absolute;
+  right: 10px;
+  padding: 10px;
+  background-color: #555555;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
-.horariosCortes{
-    grid-area: contenido;
-    padding: 25px;
+
+.title button:hover {
+  background-color: #777777;
 }
-.horariosCortes h1{
-    text-align: center;
-    font-size: 1.5em;
-    margin: 10px 0 30px 0;
+
+/* Sección de mapa */
+.mapaItems {
+  grid-area: mapa;
 }
-.tablaCortes{
-    height: 65vh;
-    padding: 0px 15px;
-    overflow-y: scroll;
+
+/* Horarios de cortes */
+.horariosCortes {
+  grid-area: contenido;
+  padding: 25px;
+  
+}
+.parroquia-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #1c1c1c;
+  color: #f1f1f1;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+  text-align: center;
+  font-size: 2em;
+  margin-bottom: 30px;
+}
+
+.alimentadores-scroll {
+  max-height: 500px; /* Establece la altura máxima del contenedor padre */
+  overflow-y: auto; /* Activa el scroll vertical cuando el contenido es demasiado alto */
+  padding-right: 10px;
+}
+
+.alimentador-card {
+  background-color: #292929;
+  margin-bottom: 20px;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.card-header h2 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  color: #00bcd4;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.sectores-container, .horarios-container {
+  width: 48%;
+}
+
+h3 {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #00bcd4;
+  padding-bottom: 5px;
+  color: #f9a825;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+li {
+  margin-bottom: 5px;
+  font-size: 1em;
+  padding: 8px;
+  background: #3a3a3a;
+  border-radius: 5px;
+}
+
+li strong {
+  color: #f9a825;
+}
+
+.horariosCortes h1 {
+  text-align: center;
+  font-size: 1.5em;
+  margin: 10px 0 30px 0;
+}
+
+/* Overlay de login */
+.login-overlay,
+/* Fondo del overlay */
+.overlay-horarios {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+/* Caja del formulario */
+.formulario-horarios {
+  background-color: #2e2e2e;
+  padding: 40px;
+  width: 90%;
+  max-width: 600px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  color: #ffffff;
+  text-align: center;
+}
+
+/* Título */
+.formulario-horarios h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+/* Estructura del formulario */
+.formulario-contenido {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.form-group label {
+  font-size: 0.85em;
+  color: #e0e0e0;
+  margin-bottom: 5px;
+}
+
+.form-group select,
+.form-group input[type="time"] {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #555;
+  background-color: #444;
+  color: #f0f0f0;
+  font-size: 1em;
+}
+
+.horario-fila {
+  display: flex;
+  gap: 10px;
+}
+
+/* Botón para Agregar Horario */
+.btn-container {
+  text-align: right;
+}
+
+.btn-add {
+  background-color: #007bff;
+  color: #ffffff;
+  padding: 8px 12px;
+  font-size: 1em;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-add:hover {
+  background-color: #0056b3;
+}
+
+/* Tabla de horarios */
+.tabla-horarios {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.tabla-horarios th,
+.tabla-horarios td {
+  padding: 10px;
+  border-bottom: 1px solid #555;
+  text-align: center;
+  color: #f0f0f0;
+}
+
+.tabla-horarios th {
+  background-color: #444;
+  font-weight: bold;
+}
+
+/* Botones de guardado y cierre */
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.btn-save,
+.btn-close {
+  background-color: #555555;
+  color: #ffffff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 48%;
+}
+
+.btn-save:hover {
+  background-color: #666666;
+}
+
+.btn-close:hover {
+  background-color: #777777;
+}
+/* Overlay de login */
+.login-overlay {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8); /* Fondo oscuro semitransparente */
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+/* Caja del formulario de login */
+.login-box {
+  background-color: #2e2e2e;
+  padding: 40px;
+  width: 90%;
+  max-width: 400px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  color: #ffffff;
+  text-align: center;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.login-box h1 {
+  font-size: 1.8em;
+  margin-bottom: 20px;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+/* Estilos para los labels e inputs */
+.login-box label {
+  display: block;
+  font-size: 0.85em;
+  color: #e0e0e0;
+  text-align: left;
+  margin-bottom: 8px;
+}
+
+.login-box input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 1px solid #555;
+  border-radius: 5px;
+  background-color: #444;
+  color: #f0f0f0;
+  font-size: 1em;
+  transition: all 0.3s ease;
+}
+
+.login-box input::placeholder {
+  color: #b0b0b0;
+}
+
+.login-box input:focus {
+  border-color: #007bff; /* Color de enfoque */
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Estilos para los botones */
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.btn-enter,
+.btn-cancel {
+  width: 100%;
+  padding: 12px;
+  font-size: 1em;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-enter {
+  background-color: #007bff;
+  color: #ffffff;
+}
+
+.btn-enter:hover {
+  background-color: #0056b3;
+}
+
+.btn-cancel {
+  background-color: #444;
+  color: #f0f0f0;
+}
+
+.btn-cancel:hover {
+  background-color: #555;
+}
+
+/* Animación de desvanecimiento */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
