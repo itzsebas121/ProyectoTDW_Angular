@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class HorariosService {
-  private apiUrl = 'http://localhost:3000/api';
+  private apiUrl = 'http://10.79.7.93:3000/api';
 
   constructor(private http: HttpClient) {}
 

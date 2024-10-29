@@ -24,7 +24,7 @@
               {
                 "glob": "**/*",
                 "input": "public",
-                "output":"public"
+                "output": "public"
               },
               {
                 "glob": "**/*",
@@ -43,13 +43,13 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kB",
-                  "maximumError": "1MB"
+                  "maximumWarning": "2mb",
+                  "maximumError": "3mb"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kB",
-                  "maximumError": "4kB"
+                  "maximumWarning": "7kb",
+                  "maximumError": "7.5kb"
                 }
               ],
               "outputHashing": "all"

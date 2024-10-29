@@ -86,6 +86,6 @@ app.post('/api/guardar-horario', (req, res) => {
     });
 });
 
-app.listen(PORT, () => {
-    console.log(`Servidor corriendo en http://localhost:${PORT}`);
-});
+app.listen(PORT,() => {
+    console.log('Servidor corriendo en http://0.0.0.0:3000');
+  }); 
