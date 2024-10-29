@@ -1,3 +1,4 @@
+// app.component.ts
 import { Component, Input, OnInit } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
@@ -23,7 +24,6 @@ export class AppComponent implements OnInit {
   isLoggedIn = false;
   showLoginOverlay = false;
   showOverlayHorarios = false;
-
   parroquias: any[] = [];
   alimentadores: any[] = [];
   selectedParroquia = '';
@@ -53,6 +53,50 @@ export class AppComponent implements OnInit {
   onParroquiaChange() {
     const parroquiaSeleccionada = this.parroquias.find(parroquia => parroquia.nombre === this.selectedParroquia);
     this.alimentadores = parroquiaSeleccionada ? parroquiaSeleccionada.alimentadores : [];
+    this.horarios = []; // Limpiar la lista de horarios al cambiar la parroquia
+    this.selectedAlimentador = ''; // Limpiar alimentador seleccionado
+  }
+
+  // Cargar horarios del alimentador seleccionado
+  onAlimentadorChange() {
+    if (this.selectedAlimentador) {
+      // Obtener la parroquia seleccionada
+      const parroquiaSeleccionada = this.parroquias.find(
+        parroquia => parroquia.nombre === this.selectedParroquia
+      );
+
+      if (parroquiaSeleccionada) {
+        // Buscar el alimentador seleccionado dentro de la parroquia
+        const alimentadorSeleccionado = parroquiaSeleccionada.alimentadores.find(
+          (alimentador: any) => alimentador.nombre === this.selectedAlimentador
+        );
+
+        // Si se encuentra el alimentador, cargar los horarios correspondientes
+        if (alimentadorSeleccionado && alimentadorSeleccionado.horarios) {
+          this.horarios = []; // Limpiar la lista de horarios actual
+          // Recorrer los horarios del alimentador y agregarlos a la lista
+          for (const dia in alimentadorSeleccionado.horarios) {
+            const rangos = alimentadorSeleccionado.horarios[dia];
+            const rangosArray = Array.isArray(rangos) ? rangos : [rangos];
+            rangosArray.forEach((rango: string) => {
+              const [inicio, fin] = rango.split(' - ');
+              this.horarios.push({
+                dia,
+                inicio,
+                fin,
+                alimentador: this.selectedAlimentador
+              });
+            });
+          }
+        } else {
+          // Si no hay horarios, limpiar la tabla
+          this.horarios = [];
+        }
+      }
+    } else {
+      // Si no se selecciona un alimentador, limpiar la tabla
+      this.horarios = [];
+    }
   }
 
   // Agregar un nuevo horario a la lista temporal
@@ -69,7 +113,6 @@ export class AppComponent implements OnInit {
       this.selectedDia = '';
       this.horaInicio = '';
       this.horaFin = '';
-      this.selectedAlimentador = '';
     }
   }
 
@@ -86,43 +129,6 @@ export class AppComponent implements OnInit {
   // Cerrar el overlay de horarios
   cerrarOverlayHorarios() {
     this.showOverlayHorarios = false;
-  }
-
-  // Alternar la visibilidad del overlay de login
-  toggleLogin() {
-    this.showLoginOverlay = !this.showLoginOverlay;
-  }
-
-  // Iniciar sesión
-  login(event: Event) {
-    event.preventDefault();
-    this.isLoggedIn = true;
-    this.showLoginOverlay = false;
-  }
-
-  // Cancelar el login
-  cancelLogin() {
-    this.showLoginOverlay = false;
-  }
-
-  // Obtener información de una parroquia específica
-  handleLocation(location: string) {
-    this.parroquiaSelected = null;
-    this.getDataParroquia(location);
-  }
-
-  // Cargar datos de la parroquia seleccionada desde el archivo JSON
-  getDataParroquia(parroquiaName: string) {
-    this.horariosService.obtenerDatos().subscribe(data => {
-      const selectedParroquia = data.parroquias.find(
-        (parroquia: any) => parroquia.nombre.toUpperCase() === parroquiaName.toUpperCase()
-      );
-      if (selectedParroquia) {
-        this.parroquiaSelected = selectedParroquia;
-      } else {
-        console.log('Parroquia no encontrada');
-      }
-    });
   }
 
   // Guardar los horarios en el servidor usando HorariosService
@@ -149,6 +155,26 @@ export class AppComponent implements OnInit {
     );
   }
 
+  // Obtener información de una parroquia específica
+  handleLocation(location: string) {
+    this.parroquiaSelected = null;
+    this.getDataParroquia(location);
+  }
+
+  // Cargar datos de la parroquia seleccionada desde el archivo JSON
+  getDataParroquia(parroquiaName: string) {
+    this.horariosService.obtenerDatos().subscribe(data => {
+      const selectedParroquia = data.parroquias.find(
+        (parroquia: any) => parroquia.nombre.toUpperCase() === parroquiaName.toUpperCase()
+      );
+      if (selectedParroquia) {
+        this.parroquiaSelected = selectedParroquia;
+      } else {
+        console.log('Parroquia no encontrada');
+      }
+    });
+  }
+
   // Método para ordenar los días de la semana
   obtenerHorariosOrdenados(horarios: any) {
     const diasSemanaOrdenados = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
@@ -160,5 +186,30 @@ export class AppComponent implements OnInit {
         rango: Array.isArray(horarios[dia]) ? horarios[dia] : [horarios[dia]].filter(v => v)
       }))
       .filter(item => item.rango && item.rango.length > 0);
+  }
+
+  // Alternar la visibilidad del overlay de login
+  toggleLogin() {
+    this.showLoginOverlay = !this.showLoginOverlay;
+  }
+
+  // Iniciar sesión
+  login(event: Event) {
+    event.preventDefault();
+    const form = event.target as HTMLFormElement;
+    const username = form['username'].value;
+    const password = form['password'].value;
+
+    if (username === 'admin' && password === 'admin') {
+      this.isLoggedIn = true;
+      this.showLoginOverlay = false;
+    } else {
+      alert('Usuario o contraseña incorrectos');
+    }
+  }
+
+  // Cancelar el login
+  cancelLogin() {
+    this.showLoginOverlay = false;
   }
 }

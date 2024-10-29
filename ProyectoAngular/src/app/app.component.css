@@ -1,24 +1,20 @@
-/* General */
 body {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-areas: 
-    "titulo titulo" 
+  grid-template-areas:
+    "titulo titulo"
     "mapa contenido";
-  background-color: #1a1a1a; /* Fondo oscuro */
-  color: #f0f0f0; /* Texto claro */
   margin: 0;
-  font-family: Arial, sans-serif;
 }
 
-/* Título */
 .title {
-  background-color: #333333;
+  background-color: #1c1c1c;
   grid-area: titulo;
   display: flex;
   padding: 20px;
   justify-content: center;
   position: relative;
+  height: 35px;
 }
 
 .title h1 {
@@ -31,29 +27,46 @@ body {
   position: absolute;
   right: 10px;
   padding: 10px;
-  background-color: #555555;
-  color: #ffffff;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
+.btnOverlayHorarios{
+  background-color: #1e8e1e;
+}
+.btnLogIn{
+  background-color: #007bff;
 
-.title button:hover {
-  background-color: #777777;
+}
+.btnLogIn:hover {
+  background-color: #0056b3;
+}
+.btnOverlayHorarios:hover {
+  background-color: #187618;
 }
 
 /* Sección de mapa */
 .mapaItems {
   grid-area: mapa;
+  width: 90%;
+  max-width: 800px;
+  margin: 30px auto;
+  background-color: #1c1c1c;
+  color: #f1f1f1;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  height: 75vh;
 }
 
 /* Horarios de cortes */
 .horariosCortes {
   grid-area: contenido;
-  padding: 25px;
-  
+  align-items: sace-between;
 }
+
 .parroquia-container {
+  padding: 25px;
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
@@ -70,8 +83,8 @@ h1 {
 }
 
 .alimentadores-scroll {
-  max-height: 500px; /* Establece la altura máxima del contenedor padre */
-  overflow-y: auto; /* Activa el scroll vertical cuando el contenido es demasiado alto */
+  height: 65vh;
+  overflow-y: auto;
   padding-right: 10px;
 }
 
@@ -95,7 +108,8 @@ h1 {
   justify-content: space-between;
 }
 
-.sectores-container, .horarios-container {
+.sectores-container,
+.horarios-container {
   width: 48%;
 }
 
@@ -132,7 +146,6 @@ li strong {
 
 /* Overlay de login */
 .login-overlay,
-/* Fondo del overlay */
 .overlay-horarios {
   display: flex;
   position: fixed;
@@ -146,7 +159,6 @@ li strong {
   z-index: 1000;
 }
 
-/* Caja del formulario */
 .formulario-horarios {
   background-color: #2e2e2e;
   padding: 40px;
@@ -156,9 +168,10 @@ li strong {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   color: #ffffff;
   text-align: center;
+  height: 80vh;
+  overflow-y: auto;
 }
 
-/* Título */
 .formulario-horarios h2 {
   font-size: 24px;
   margin-bottom: 20px;
@@ -166,7 +179,6 @@ li strong {
   font-weight: bold;
 }
 
-/* Estructura del formulario */
 .formulario-contenido {
   display: grid;
   grid-template-columns: 1fr;
@@ -201,13 +213,11 @@ li strong {
   gap: 10px;
 }
 
-/* Botón para Agregar Horario */
 .btn-container {
   text-align: right;
 }
 
 .btn-add {
-  background-color: #007bff;
   color: #ffffff;
   padding: 8px 12px;
   font-size: 1em;
@@ -216,11 +226,7 @@ li strong {
   cursor: pointer;
 }
 
-.btn-add:hover {
-  background-color: #0056b3;
-}
 
-/* Tabla de horarios */
 .tabla-horarios {
   width: 100%;
   border-collapse: collapse;
@@ -240,7 +246,6 @@ li strong {
   font-weight: bold;
 }
 
-/* Botones de guardado y cierre */
 .button-group {
   display: flex;
   justify-content: space-between;
@@ -250,7 +255,6 @@ li strong {
 
 .btn-save,
 .btn-close {
-  background-color: #555555;
   color: #ffffff;
   padding: 10px 20px;
   border: none;
@@ -266,7 +270,7 @@ li strong {
 .btn-close:hover {
   background-color: #777777;
 }
-/* Overlay de login */
+
 .login-overlay {
   display: flex;
   position: fixed;
@@ -274,13 +278,12 @@ li strong {
   left: 0;
   width: 100%;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.8); /* Fondo oscuro semitransparente */
+  background-color: rgba(0, 0, 0, 0.8);
   align-items: center;
   justify-content: center;
   z-index: 1000;
 }
 
-/* Caja del formulario de login */
 .login-box {
   background-color: #2e2e2e;
   padding: 40px;
@@ -300,7 +303,6 @@ li strong {
   font-weight: bold;
 }
 
-/* Estilos para los labels e inputs */
 .login-box label {
   display: block;
   font-size: 0.85em;
@@ -326,12 +328,11 @@ li strong {
 }
 
 .login-box input:focus {
-  border-color: #007bff; /* Color de enfoque */
+  border-color: #007bff;
   outline: none;
   box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
 
-/* Estilos para los botones */
 .buttons {
   display: flex;
   justify-content: space-between;
@@ -367,7 +368,40 @@ li strong {
   background-color: #555;
 }
 
-/* Animación de desvanecimiento */
+.zona-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #1c1c1c;
+  padding: 2rem;
+  margin: 2rem auto;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  max-width: 800px;
+}
+
+.zona-container:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.zona-titulo {
+  font-weight: bold;
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.zona-container img {
+  width: 250px;
+}
+
+.zona-boton:hover {
+  background-color: #f50057;
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -376,5 +410,175 @@ li strong {
   to {
     opacity: 1;
     transform: scale(1);
+  }
+}
+
+
+@media (max-width: 1236px) {
+  body {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "titulo"
+      "mapa"
+      "contenido";
+    margin: 0;
+    overflow-y: auto;
+  }
+  .form-group select{
+    width: 100%;
+  }
+  .mapaItems {
+    width: 100%;
+    margin: 30px auto;
+    height: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .table-container{
+    width: 100%;
+    overflow-x: auto;
+  }
+  .login-box input {
+    width: 90%;
+  }
+
+  .login-box,
+  .formulario-horarios {
+    padding: 20px;
+    width: 80%;
+    max-width: 350px;
+  }
+
+  .login-box h1,
+  .formulario-horarios h2 {
+    font-size: 1.5em;
+  }
+
+  .buttons,
+  .button-group,
+  .horario-fila {
+    flex-direction: column;
+  }
+
+  .btn-enter,
+  .btn-cancel,
+  .btn-save,
+  .btn-close {
+    width: 90%;
+    font-size: 0.9em;
+    padding: 10px;
+  }
+
+  .tabla-horarios th,
+  .tabla-horarios td {
+    font-size: 0.9em;
+  }
+  .title h1 {
+    font-size: 1.5em;
+  }
+
+  .title button {
+    padding: 8px;
+    font-size: 0.9em;
+  }
+
+  .mapaItems,
+  .parroquia-container {
+    width: 90%;
+    margin: 20px auto;
+  }
+
+  .alimentador-card {
+    padding: 15px;
+  }
+
+  .alimentadores-scroll {
+    height: 50vh;
+  }
+
+  .formulario-horarios {
+    width: 95%;
+    padding: 30px;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
+  .login-box {
+    width: 90%;
+    padding: 30px;
+    max-width: 350px;
+  }
+
+  .horariosCortes h1 {
+    font-size: 1.3em;
+  }
+
+  .zona-container {
+    padding: 1.5rem;
+    margin: 1.5rem auto;
+  }
+
+  .zona-titulo {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  
+  .title h1 {
+    font-size: 1.5em;
+  }
+
+  .title button {
+    padding: 5px;
+    font-size: 0.8em;
+  }
+  .login-box, .formulario-horarios {
+    width: 75%;
+  }
+  .mapaItems,
+  .parroquia-container,
+  .formulario-horarios {
+    width: 100%;
+    margin: 15px auto;
+  }
+  
+
+
+  .horariosCortes h1 {
+    font-size: 1.2em;
+  }
+
+  .alimentador-card {
+    padding: 10px;
+  }
+
+  .alimentadores-scroll {
+    height: auto;
+    max-height: 45vh;
+  }
+
+  .zona-titulo {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+
+  .formulario-horarios,
+  .login-box {
+    padding: 20px;
+  }
+
+  .zona-container {
+    padding: 1rem;
+  }
+
+  .btn-add,
+  .btn-save,
+  .btn-close,
+  .btn-enter,
+  .btn-cancel {
+    padding: 8px;
+    font-size: 0.9em;
   }
 }
